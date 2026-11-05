@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kettle & Co. — One bag of specialty coffee, every Friday</title>
+  <meta name="description" content="A specialty coffee subscription that drops one freshly roasted single-origin bag through your letterbox every Friday morning.">
+  
+  <!-- Preconnect and Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Top Announcement Bar: Authentic Roastery Dispatch Schedule -->
+  <aside class="dispatch-banner" aria-label="Dispatch schedule">
+    <div class="banner-inner container">
+      <span class="banner-indicator"></span>
+      <p class="banner-text">
+        <strong>Next roast run:</strong> Wednesday morning. Orders placed by 6pm Thursday ship for arrival <span id="banner-next-friday" class="banner-date">this Friday</span>.
+      </p>
+      <a href="#plans" class="banner-link">See plans</a>
+    </div>
+  </aside>
+
+  <!-- Navigation with logo + one CTA -->
+  <header class="site-header" id="top">
+    <div class="container nav-container">
+      <a href="#top" class="brand-logo" aria-label="Kettle & Co. homepage">
+        <svg class="brand-mark" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="16" cy="16" r="15" stroke="currentColor" stroke-width="1.75"/>
+          <path d="M10 20C10 15 13 11 16 11C19 11 22 15 22 20H10Z" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"/>
+          <path d="M16 11V7M13 7H19" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+          <path d="M22 16H25C26 16 26.5 17 26.5 18C26.5 19 25.5 20 24 20" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+          <path d="M10 17H7" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+        </svg>
+        <span class="brand-wordmark">
+          <span class="brand-name">Kettle &amp; Co.</span>
+          <span class="brand-sub">Specialty Coffee • Weekly Dispatch</span>
+        </span>
+      </a>
+
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#how-it-works" class="nav-link">How it works</a>
+        <a href="#value-props" class="nav-link">The difference</a>
+        <a href="#plans" class="nav-link">Subscriptions</a>
+      </nav>
+
+      <!-- Nav CTA -->
+      <div class="nav-actions">
+        <a href="#signup" class="btn btn-primary nav-cta">Get Friday bag</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section: Headline, one sentence, email field -->
+    <section class="hero-section" aria-labelledby="hero-title">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="hero-origin-pill">
+            <span class="pill-dot"></span>
+            <span>Single-origin rotation • Lot #208</span>
+          </div>
+
+          <h1 id="hero-title" class="hero-title">
+            One bag of specialty coffee, every Friday.
+          </h1>
+
+          <p class="hero-lead">
+            A subscription that ships one freshly roasted single-origin lot to your letterbox every Friday morning, perfectly rested for your weekend brew.
+          </p>
+
+          <!-- Quick Email Field (per checklist: email field in hero) -->
+          <form class="hero-quickform" id="heroQuickForm" novalidate>
+            <div class="hero-input-wrap">
+              <label for="heroEmail" class="visually-hidden">Your email address</label>
+              <input 
+                type="email" 
+                id="heroEmail" 
+                name="heroEmail" 
+                class="hero-input" 
+                placeholder="Enter your email to claim next Friday..."
+                autocomplete="email"
+                required
+              >
+              <button type="submit" class="btn btn-primary hero-btn">
+                <span>Start subscription</span>
+              </button>
+            </div>
+            <p class="hero-input-note">
+              No contracts. Pause or cancel with one click before Wednesday midday.
+            </p>
+          </form>
+
+          <div class="hero-specs-row">
+            <div class="spec-item">
+              <span class="spec-label">Roast cycle</span>
+              <span class="spec-val">Every Wednesday</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-label">Packaging</span>
+              <span class="spec-val">Letterbox flat-pack</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-label">SCA score</span>
+              <span class="spec-val">Always 86+ points</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Tactile Object: Real Parcel / Tasting Card Artifact -->
+        <div class="hero-visual" aria-hidden="false">
+          <div class="coffee-parcel-card">
+            <div class="parcel-header">
+              <div class="parcel-stamp">
+                <span class="stamp-code">KC-DISPATCH</span>
+                <span class="stamp-date" id="heroCardRoastDate">ROAST: WED 05 NOV</span>
+              </div>
+              <div class="parcel-barcode">
+                <span>||||| |||| |||||| ||| |||||</span>
+                <small>FRIDAY-DIRECT</small>
+              </div>
+            </div>
+
+            <div class="parcel-body">
+              <div class="parcel-meta-top">
+                <span class="parcel-tag">CURRENT RELEASE</span>
+                <span class="parcel-weight">250g • Whole Bean or Ground</span>
+              </div>
+
+              <h2 class="parcel-coffee-name">Worka Sakaro</h2>
+              <p class="parcel-region">Gedeo Zone, Yirgacheffe • Ethiopia</p>
+
+              <div class="cupping-notes-block">
+                <span class="cupping-title">Cupping notes</span>
+                <div class="cupping-tags">
+                  <span class="cup-tag">Candied Bergamot</span>
+                  <span class="cup-tag">White Peach</span>
+                  <span class="cup-tag">Wild Honey</span>
+                </div>
+              </div>
+
+              <dl class="parcel-details-list">
+                <div>
+                  <dt>Producer</dt>
+                  <dd>Mijane Woresa &amp; Sons</dd>
+                </div>
+                <div>
+                  <dt>Elevation</dt>
+                  <dd>2,050 – 2,200 MASL</dd>
+                </div>
+                <div>
+                  <dt>Varietal</dt>
+                  <dd>Kurume &amp; Dega</dd>
+                </div>
+                <div>
+                  <dt>Process</dt>
+                  <dd>Slow Washed (72h)</dd>
+                </div>
+              </dl>
+            </div>
+
+            <div class="parcel-footer">
+              <div class="parcel-status">
+                <span class="status-pulse"></span>
+                <span>Scheduled for Friday morning doorstep delivery</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Three Value Props (Acceptance checklist item) -->
+    <section class="section section-value-props" id="value-props" aria-labelledby="props-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-kicker">Why Friday coffee matters</span>
+          <h2 id="props-heading" class="section-title">Built around real coffee drinkers, not warehouse inventory.</h2>
+          <p class="section-subtitle">
+            Most coffee subscriptions send excess blends on erratic schedules. Kettle &amp; Co. was designed from the mailbox backwards.
+          </p>
+        </div>
+
+        <div class="props-grid">
+          <!-- Prop 1 -->
+          <article class="prop-card">
+            <div class="prop-icon-wrap" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+                <rect x="3" y="5" width="18" height="14" rx="2"/>
+                <path d="M3 7l9 6 9-6"/>
+                <path d="M12 13v8"/>
+              </svg>
+            </div>
+            <h3 class="prop-title">Letterbox flat-pack. Zero missed deliveries.</h3>
+            <p class="prop-body">
+              Our bespoke 250g pouches are shaped like thin hardbacks. They slide through 99.8% of UK and standard mail slots without bending. You will never have to queue at a sorting depot on Saturday morning.
+            </p>
+            <div class="prop-footer-note">Fits standard 254mm × 38mm letter plates</div>
+          </article>
+
+          <!-- Prop 2 -->
+          <article class="prop-card">
+            <div class="prop-icon-wrap" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/>
+                <path d="M2 12h20"/>
+              </svg>
+            </div>
+            <h3 class="prop-title">100% single-origin. Never dark filler blends.</h3>
+            <p class="prop-body">
+              Every Friday brings a different micro-lot sourced from smallholders in Colombia, Ethiopia, Kenya, Guatemala, or Sumatra. We cup at 86+ points, pay above Fairtrade minimums, and print the farm gate price.
+            </p>
+            <div class="prop-footer-note">Includes origin map and water brew guide</div>
+          </article>
+
+          <!-- Prop 3 -->
+          <article class="prop-card">
+            <div class="prop-icon-wrap" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+                <circle cx="12" cy="12" r="9"/>
+                <path d="M12 7v5l3 3"/>
+              </svg>
+            </div>
+            <h3 class="prop-title">Rested in transit. Peak cup by Saturday morning.</h3>
+            <p class="prop-body">
+              Freshly roasted beans need 48 hours to release trapped carbon dioxide before opening up. Roasted Wednesday, rested while in transit Thursday, your bag arrives Friday right at the sweet spot of flavor development.
+            </p>
+            <div class="prop-footer-note">Nitrogen-flushed valve protects volatile aromatics</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works in Three Steps (Acceptance checklist item) -->
+    <section class="section section-steps" id="how-it-works" aria-labelledby="steps-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-kicker">The weekly rhythm</span>
+          <h2 id="steps-heading" class="section-title">How it works in three steps.</h2>
+          <p class="section-subtitle">
+            A reliable weekly cycle calibrated so you never run dry and never drink stale coffee.
+          </p>
+        </div>
+
+        <div class="steps-container">
+          <div class="step-card">
+            <div class="step-badge">Step 1</div>
+            <div class="step-schedule-pill">Every Monday</div>
+            <h3 class="step-title">We cup and select the week's lot</h3>
+            <p class="step-desc">
+              Our roasting team cups blind across current fresh harvests, selecting one exceptional lot that represents peak seasonal sweetness, clarity, and acidity.
+            </p>
+            <div class="step-detail-card">
+              <span class="micro-label">Origin verification</span>
+              <p>Lot identity, elevation certificate, moisture check.</p>
+            </div>
+          </div>
+
+          <div class="step-card">
+            <div class="step-badge">Step 2</div>
+            <div class="step-schedule-pill">Wednesday morning</div>
+            <h3 class="step-title">Roasted in small batches &amp; sealed warm</h3>
+            <p class="step-desc">
+              We roast to highlight delicate origin characteristics—never charred, never sour. Beans are weighed into recyclable nitrogen-valved flat pouches and boxed by hand.
+            </p>
+            <div class="step-detail-card">
+              <span class="micro-label">Convection roaster</span>
+              <p>Tailored temperature curves per varietal density.</p>
+            </div>
+          </div>
+
+          <div class="step-card">
+            <div class="step-badge">Step 3</div>
+            <div class="step-schedule-pill">Friday morning</div>
+            <h3 class="step-title">Dropped through your letterbox</h3>
+            <p class="step-desc">
+              Royal Mail Tracked 24 drops the slim carton straight through your door before lunch. Pick it up from your doormat, crack the seal, and brew your first weekend cup.
+            </p>
+            <div class="step-detail-card">
+              <span class="micro-label">Weekend ready</span>
+              <p>Dosed for ~16 cups of clean filter or rich espresso.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Two Plans Section: Weekly 18 • Fortnightly 32 (Acceptance checklist item) -->
+    <section class="section section-plans" id="plans" aria-labelledby="plans-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-kicker">Transparent subscription</span>
+          <h2 id="plans-heading" class="section-title">Two simple plans. Free delivery always.</h2>
+          <p class="section-subtitle">
+            Pick your cadence. Pause for holidays, skip a delivery, or cancel anytime with one click in your account.
+          </p>
+        </div>
+
+        <div class="plans-grid">
+          <!-- Plan 1: Weekly 18 -->
+          <div class="plan-card" id="planCardWeekly" data-plan="weekly">
+            <div class="plan-header">
+              <div class="plan-badge">Most popular</div>
+              <h3 class="plan-name">Weekly Dispatch</h3>
+              <p class="plan-summary">For daily coffee rituals. Never run out of fresh beans.</p>
+            </div>
+
+            <div class="plan-price-block">
+              <div class="plan-price">
+                <span class="currency">$</span>
+                <span class="amount">18</span>
+              </div>
+              <span class="cadence">per week • billed weekly</span>
+            </div>
+
+            <div class="plan-specs">
+              <div class="spec-row">
+                <span class="spec-name">Quantity</span>
+                <span class="spec-value">1 × 250g bag every Friday</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-name">Cups per week</span>
+                <span class="spec-value">~14 to 16 cups (~$1.15 / cup)</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-name">Shipping</span>
+                <span class="spec-value">Included (First Class Letterbox)</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-name">Flexibility</span>
+                <span class="spec-value">Skip weeks anytime with 1 click</span>
+              </div>
+            </div>
+
+            <ul class="plan-features">
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>New single origin every single Friday</span>
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Whole bean or freshly ground to your method</span>
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Printed roaster cupping card with dial-in recipe</span>
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>100% letterbox guaranteed</span>
+              </li>
+            </ul>
+
+            <button type="button" class="btn btn-primary plan-select-btn" data-select-plan="weekly">
+              Choose Weekly ($18)
+            </button>
+          </div>
+
+          <!-- Plan 2: Fortnightly 32 -->
+          <div class="plan-card" id="planCardFortnightly" data-plan="fortnightly">
+            <div class="plan-header">
+              <div class="plan-badge plan-badge-alt">Best value</div>
+              <h3 class="plan-name">Fortnightly Dispatch</h3>
+              <p class="plan-summary">For solo drinkers or weekend pour-over specialists.</p>
+            </div>
+
+            <div class="plan-price-block">
+              <div class="plan-price">
+                <span class="currency">$</span>
+                <span class="amount">32</span>
+              </div>
+              <span class="cadence">every 2 weeks • billed fortnightly</span>
+            </div>
+
+            <div class="plan-specs">
+              <div class="spec-row">
+                <span class="spec-name">Quantity</span>
+                <span class="spec-value">2 × 250g bags every other Friday</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-name">Cups per delivery</span>
+                <span class="spec-value">~30 cups (~$1.06 / cup)</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-name">Shipping</span>
+                <span class="spec-value">Included (Twin Letterbox flat-pack)</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-name">Savings</span>
+                <span class="spec-value">Save $4 per month vs weekly single</span>
+              </div>
+            </div>
+
+            <ul class="plan-features">
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Two distinct single-origins in each parcel</span>
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Compare processing methods (e.g. Washed vs Natural)</span>
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Individual nitrogen valve on each 250g bag</span>
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Full pause, skip, or modify anytime</span>
+              </li>
+            </ul>
+
+            <button type="button" class="btn btn-outline plan-select-btn" data-select-plan="fortnightly">
+              Choose Fortnightly ($32)
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Signup Form Section (Acceptance checklist: email + plan, client-side validation, success message) -->
+    <section class="section section-signup" id="signup" aria-labelledby="signup-heading">
+      <div class="container signup-container">
+        
+        <div class="signup-intro">
+          <span class="section-kicker">Join the Friday table</span>
+          <h2 id="signup-heading" class="section-title">Reserve your Friday bag.</h2>
+          <p class="section-subtitle">
+            We cap every roast run to keep lot sizes under 200 bags. Complete your details below to secure this week's dispatch.
+          </p>
+
+          <div class="roaster-guarantee">
+            <div class="guarantee-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
+            <div class="guarantee-text">
+              <h4>The Kettle &amp; Co. Freshness Pledge</h4>
+              <p>If your Friday coffee arrives damaged or isn't singing on your palate, we'll refund the bag immediately or send a replacement roast on us.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- The Signup Card Form -->
+        <div class="signup-card" id="signupCard">
+          
+          <!-- Active Form View -->
+          <form id="subscriptionForm" class="signup-form" novalidate>
+            
+            <!-- Step Header in form -->
+            <div class="form-banner">
+              <span class="form-banner-step">Final Step</span>
+              <span class="form-banner-target">First delivery: <strong id="formNextFridayText">Friday</strong></span>
+            </div>
+
+            <!-- Email Field with validation -->
+            <div class="form-group" id="groupEmail">
+              <label for="subscriberEmail" class="form-label">
+                Your email address <span class="required-mark" aria-hidden="true">*</span>
+              </label>
+              <div class="input-with-icon">
+                <input 
+                  type="email" 
+                  id="subscriberEmail" 
+                  name="email" 
+                  class="form-input" 
+                  placeholder="name@example.com"
+                  autocomplete="email"
+                  aria-describedby="emailError"
+                  required
+                >
+                <span class="input-icon" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </span>
+              </div>
+              <p class="field-error" id="emailError" role="alert" aria-live="polite"></p>
+              <p class="field-hint">We send dispatch tracking and origin notes on Thursday evening.</p>
+            </div>
+
+            <!-- Plan Selection: Radio Cards (Weekly 18 vs Fortnightly 32) -->
+            <fieldset class="form-group" id="groupPlan">
+              <legend class="form-label">
+                Select your delivery plan <span class="required-mark" aria-hidden="true">*</span>
+              </legend>
+
+              <div class="plan-options-grid">
+                <label class="plan-option-label" for="planRadioWeekly">
+                  <input 
+                    type="radio" 
+                    id="planRadioWeekly" 
+                    name="subscriptionPlan" 
+                    value="weekly" 
+                    checked
+                  >
+                  <div class="plan-option-box">
+                    <div class="option-header">
+                      <span class="option-radio-fake"></span>
+                      <strong class="option-title">Weekly Dispatch</strong>
+                      <span class="option-cost">$18<small>/wk</small></span>
+                    </div>
+                    <p class="option-desc">1 × 250g bag delivered every Friday morning.</p>
+                  </div>
+                </label>
+
+                <label class="plan-option-label" for="planRadioFortnightly">
+                  <input 
+                    type="radio" 
+                    id="planRadioFortnightly" 
+                    name="subscriptionPlan" 
+                    value="fortnightly"
+                  >
+                  <div class="plan-option-box">
+                    <div class="option-header">
+                      <span class="option-radio-fake"></span>
+                      <strong class="option-title">Fortnightly Dispatch</strong>
+                      <span class="option-cost">$32<small>/2wks</small></span>
+                    </div>
+                    <p class="option-desc">2 × 250g bags every two weeks. Save $4/month.</p>
+                  </div>
+                </label>
+              </div>
+            </fieldset>
+
+            <!-- Grind Choice (Real coffee nuance) -->
+            <div class="form-group" id="groupGrind">
+              <label for="grindPreference" class="form-label">Grind preference</label>
+              <select id="grindPreference" name="grind" class="form-select">
+                <option value="whole-bean" selected>Whole Bean (Recommended for peak flavor)</option>
+                <option value="filter">Filter / Pour-Over / V60 / Chemex (Medium)</option>
+                <option value="aeropress">AeroPress / Moka Pot (Medium-Fine)</option>
+                <option value="cafetiere">Cafetière / French Press / Cold Brew (Coarse)</option>
+                <option value="espresso">Espresso (Fine)</option>
+              </select>
+            </div>
+
+            <!-- Delivery Postcode / Postal code -->
+            <div class="form-group" id="groupPostcode">
+              <label for="subscriberPostcode" class="form-label">
+                Postal / Zip code <span class="required-mark" aria-hidden="true">*</span>
+              </label>
+              <input 
+                type="text" 
+                id="subscriberPostcode" 
+                name="postcode" 
+                class="form-input" 
+                placeholder="e.g. SW1A 1AA or 10001"
+                autocomplete="postal-code"
+                aria-describedby="postcodeError"
+                required
+              >
+              <p class="field-error" id="postcodeError" role="alert" aria-live="polite"></p>
+            </div>
+
+            <!-- Dynamic Order Summary Review Box -->
+            <div class="order-summary-box">
+              <div class="summary-line">
+                <span id="summaryPlanLabel">Weekly Dispatch (1 bag)</span>
+                <span id="summaryPlanPrice">$18.00</span>
+              </div>
+              <div class="summary-line">
+                <span>First Class Letterbox Delivery</span>
+                <span class="free-pill">FREE</span>
+              </div>
+              <div class="summary-divider"></div>
+              <div class="summary-line summary-total">
+                <strong>Due on first dispatch</strong>
+                <strong id="summaryTotalPrice">$18.00</strong>
+              </div>
+              <div class="summary-meta">
+                <span>First charge: Wednesday before delivery • Zero tie-in</span>
+              </div>
+            </div>
+
+            <!-- Submit Button with loading state handling -->
+            <div class="form-actions">
+              <button type="submit" id="submitBtn" class="btn btn-primary btn-block">
+                <span class="btn-text">Confirm subscription &amp; lock Friday spot</span>
+                <span class="btn-spinner" aria-hidden="true"></span>
+              </button>
+            </div>
+
+            <p class="form-terms">
+              By confirming, you agree to receive weekly coffee deliveries. You can pause, skip, or cancel anytime from your inbox link.
+            </p>
+          </form>
+
+          <!-- Success Message State (Acceptance checklist: success message) -->
+          <div id="signupSuccess" class="signup-success-state" style="display: none;" role="region" aria-live="polite" aria-labelledby="successTitle">
+            <div class="success-icon-wrap">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                <polyline points="22 4 12 14.01 9 11.01"/>
+              </svg>
+            </div>
+
+            <span class="success-stamp">DISPATCH CONFIRMED</span>
+            <h3 id="successTitle" class="success-title">You're on the roast list!</h3>
+            <p class="success-lead">
+              We have reserved your Friday bag. A receipt and account management link have been dispatched to:
+            </p>
+            <div class="confirmed-email" id="confirmedEmailDisplay">your.email@example.com</div>
+
+            <!-- Dispatch Ticket Preview -->
+            <div class="ticket-preview">
+              <div class="ticket-header">
+                <span class="ticket-id" id="ticketIdDisplay">REF: KC-9842</span>
+                <span class="ticket-tag">ROAST SCHEDULED</span>
+              </div>
+              <div class="ticket-grid">
+                <div>
+                  <span class="ticket-label">Plan</span>
+                  <strong class="ticket-val" id="ticketPlanDisplay">Weekly Dispatch ($18)</strong>
+                </div>
+                <div>
+                  <span class="ticket-label">Grind</span>
+                  <strong class="ticket-val" id="ticketGrindDisplay">Whole Bean</strong>
+                </div>
+                <div>
+                  <span class="ticket-label">Roast Day</span>
+                  <strong class="ticket-val">Wed 6:00 AM</strong>
+                </div>
+                <div>
+                  <span class="ticket-label">First Arrival</span>
+                  <strong class="ticket-val" id="ticketArrivalDisplay">Friday morning</strong>
+                </div>
+              </div>
+            </div>
+
+            <div class="success-timeline">
+              <h4>What happens next</h4>
+              <ol class="timeline-steps">
+                <li>
+                  <strong>Thursday, 4:00 PM:</strong> We box your bag flat, apply your tracking code, and drop it with Royal Mail Tracked.
+                </li>
+                <li>
+                  <strong>Friday morning:</strong> Slips through your letterbox with the regular post.
+                </li>
+              </ol>
+            </div>
+
+            <div class="success-actions">
+              <button type="button" id="resetFormBtn" class="btn btn-outline btn-sm">
+                Need to change details or test another signup?
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Accordion for real consumer clarity -->
+    <section class="section section-faq">
+      <div class="container faq-container">
+        <div class="section-header">
+          <span class="section-kicker">Questions &amp; answers</span>
+          <h2 class="section-title">Common questions about Friday delivery.</h2>
+        </div>
+
+        <div class="faq-list">
+          <details class="faq-item" open>
+            <summary class="faq-question">
+              <span>What if I have an unusual letterbox or live in a flat?</span>
+              <span class="faq-chevron" aria-hidden="true">+</span>
+            </summary>
+            <div class="faq-answer">
+              <p>Our flat packaging measures 235mm × 165mm × 32mm. It is engineered specifically to meet Royal Mail and universal postal standards for letter-slot delivery. If you have a gated entrance or shared lobby, you can provide gate code instructions during your initial account setup.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>Can I pause if I go away on holiday?</span>
+              <span class="faq-chevron" aria-hidden="true">+</span>
+            </summary>
+            <div class="faq-answer">
+              <p>Yes. You can pause for 1 to 8 weeks, skip an upcoming Friday, or switch to fortnightly at any time. Just tap the one-click manage link in any weekly email by Wednesday 12:00 PM.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>How long does the coffee stay fresh?</span>
+              <span class="faq-chevron" aria-hidden="true">+</span>
+            </summary>
+            <div class="faq-answer">
+              <p>Because we roast on Wednesday and ship with a one-way degassing valve, the beans hit their peak aromatic plateau between day 3 and day 21 post-roast. Kept in the zip-sealed pouch in a cool, dark cupboard, they remain vibrant for 4 to 6 weeks.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer (Acceptance checklist item) -->
+  <footer class="site-footer" id="footer">
+    <div class="container footer-container">
+      <div class="footer-top-grid">
+        <div class="footer-brand-col">
+          <div class="footer-logo">
+            <svg class="brand-mark" width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="16" cy="16" r="15" stroke="currentColor" stroke-width="1.75"/>
+              <path d="M10 20C10 15 13 11 16 11C19 11 22 15 22 20H10Z" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"/>
+              <path d="M16 11V7M13 7H19" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+              <path d="M22 16H25C26 16 26.5 17 26.5 18C26.5 19 25.5 20 24 20" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+              <path d="M10 17H7" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+            </svg>
+            <span class="footer-brand-name">Kettle &amp; Co.</span>
+          </div>
+          <p class="footer-bio">
+            Independent specialty roasters. One single-origin harvest, roasted Wednesday, shipped Thursday, through your letterbox every Friday morning.
+          </p>
+          <div class="roastery-address">
+            <strong>The Roastery:</strong> Arch 14, Almond Road, Bermondsey, London SE16 3LR
+          </div>
+        </div>
+
+        <div class="footer-nav-col">
+          <h4 class="footer-heading">Coffee</h4>
+          <ul class="footer-links">
+            <li><a href="#plans">Weekly Dispatch ($18)</a></li>
+            <li><a href="#plans">Fortnightly Dispatch ($32)</a></li>
+            <li><a href="#value-props">Our Cupping Standards</a></li>
+            <li><a href="#how-it-works">Letterbox Packaging</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-nav-col">
+          <h4 class="footer-heading">Support</h4>
+          <ul class="footer-links">
+            <li><a href="#signup">Manage Subscription</a></li>
+            <li><a href="#signup">Brew Guides &amp; Ratios</a></li>
+            <li><a href="mailto:hello@kettleandco.example">hello@kettleandco.example</a></li>
+            <li><a href="#top">Postal FAQ</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-nav-col">
+          <h4 class="footer-heading">Sustainability</h4>
+          <p class="footer-pledge">
+            100% home-compostable mailer flatboxes. Direct-trade premiums paid directly to smallholder cooperatives at an average of 142% above C-market commodity prices.
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <p class="copyright">
+          &copy; <span id="currentYear">2026</span> Kettle &amp; Co. Coffee Roasters Ltd. All rights reserved.
+        </p>
+        <div class="footer-legal">
+          <a href="#top">Privacy Notice</a>
+          <span>•</span>
+          <a href="#top">Subscription Terms</a>
+          <span>•</span>
+          <a href="#top">Packaging Standards</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
